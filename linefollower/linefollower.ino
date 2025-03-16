@@ -1,10 +1,10 @@
 // Motor A
-const int ENA = 11; // PWM pin for Motor A
+const int ENA = 5; // PWM pin for Motor A
 const int IN1 = 10;  // IN1 pin for Motor A
 const int IN2 = 9;  // IN2 pin for Motor A
-#define s 100 //base speed
-#define t 130//turning speed
-
+#define s 180 //base speed
+#define t 180//turning speed
+ 
 
 // Motor B
 const int ENB = 6; // PWM pin for Motor B
@@ -27,9 +27,10 @@ void setup() {
   // Set sensor pins as inputs
   pinMode(IRSensorLeft, INPUT);
   pinMode(IRSensorRight, INPUT);
-
+TCCR0B = TCCR0B & 0B11111000 | 0B00000010 ;
   // Initialize serial communication for debugging
   Serial.begin(9600);
+  delay(5000);
 }
 
 void loop() {
